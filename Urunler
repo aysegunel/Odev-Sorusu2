@@ -1,0 +1,38 @@
+import itertools
+
+file=open("AlgoritmaAnalizi.txt", "r")
+
+header=file.readline().split(",")
+
+data=file.readlines(1)
+size=len(header)
+
+for count in range(1,size+1):
+    comb=list(itertools.combinations(range(0,size), count))
+    max=0
+    for element in comb:
+        curmax=0
+        for row in data:
+            state=1
+            for index in element:
+                value=row.split(",")[index].replace('\n','')
+                if(value=='0'):
+                    state=0
+            if state==1:
+                curmax=curmax+1
+
+        if(curmax>max):
+            max=curmax
+            indexs=element
+
+
+    product=""
+    for i in indexs:
+        product=product+header[i].replace('\n','')
+
+    print("------- %s karsilastirma ------"%adet)
+    if(max==0):
+        print ("%s adet urun icin max bulunamadi"%count)
+    else:
+        print ("%s urunleri %s kere satildi"%(product,max))
+    print("")
