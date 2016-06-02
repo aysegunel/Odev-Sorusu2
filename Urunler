@@ -30,7 +30,7 @@ for count in range(1,size+1):
     for i in indexs:
         product=product+header[i].replace('\n','')
 
-    print("------- %s karsilastirma ------"%adet)
+    print("------- %s karsilastirma ------"%count)
     if(max==0):
         print ("%s adet urun icin max bulunamadi"%count)
     else:
